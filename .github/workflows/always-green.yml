@@ -14,19 +14,5 @@ jobs:
         run: |
           curl -X POST "https://slack.com/api/users.setPresence" \
                -H "Authorization: Bearer ${{ secrets.SLACK_USER_TOKEN }}" \
-               -H "Content-Type:应用/json" \
-               -d '{"presence": "auto"}'
-               
-      - name: Keep Custom Status Green (Optional)
-        run: |
-          # This optionally sets a text status or emoji to ensure you look active
-          curl -X POST "https://slack.com/api/users.profile.set" \
-               -H "Authorization: Bearer ${{ secrets.SLACK_USER_TOKEN }}" \
                -H "Content-Type: application/json; charset=utf-8" \
-               -d '{
-                 "profile": {
-                   "status_text": "Working hard",
-                   "status_emoji": ":technologist:",
-                   "status_expiration": 0
-                 }
-               }'
+               -d '{"presence": "auto"}'
